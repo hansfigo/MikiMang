@@ -9,8 +9,8 @@
 	let isLoading: boolean = false;
 
 	const cImage = 'max-w-[90%] max-h-[90%] rounded-container-token overflow-hidden shadow-xl';
-	const cBase = 'card p-4 w-[340px] shadow-xl space-y-4';
-	const cHeader = 'text-2xl font-bold';
+	const cBase = 'card p-4 w-[260px] sm:w-[340px] shadow-xl space-y-4';
+	const cHeader = 'sm:text-2xl text-xl font-bold';
 
 	onMount(async () => {
 		isLoading = true;
@@ -24,14 +24,17 @@
 		<div class="">
 			<img class="{cImage} min-w-[50%]" alt="Manga Cover" src={$modalStore[0]?.image} />
 		</div>
-		<header class={cHeader}>{$modalStore[0]?.title ?? '(title missing)'}</header>
-		<span class="chip variant-soft hover:variant-filled">
-			{#if MangaDetail == undefined}
-				<span>No Rating</span>
-			{:else}
-				<span>{MangaDetail.rating ?? 'No Rating'}</span>
-			{/if}
-		</span>
+		<div class="">
+			<header class={cHeader}>{$modalStore[0]?.title ?? '(title missing)'}</header>
+			<span class="chip mt-2 variant-soft hover:variant-filled max-w-sm">
+				{#if MangaDetail == undefined}
+					<span>No Rating</span>
+				{:else}
+					<span>{MangaDetail.rating ?? 'No Rating'}</span>
+				{/if}
+			</span>
+		</div>
+	
 		<article class="max-h-24 overflow-auto">
 			Summary : {$modalStore[0]?.body ?? 'No Desc'}
 		</article>
