@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { AppBar, AppRail, AppRailTile, AppShell, LightSwitch } from '@skeletonlabs/skeleton';
+	import { AppBar, AppShell, LightSwitch } from '@skeletonlabs/skeleton';
 	import MainPage from '../lib/mainPage.svelte';
-	import { writable, type Writable } from 'svelte/store';
 
+	const navbarBtm = 'sm:block'
 </script>
 
 <AppShell>
@@ -20,21 +19,20 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<button type="button" class="btn-icon variant-ghost-primary"
-				
-					></button
-				>
-				<button type="button" class="btn variant-ghost-primary">Github</button>
+				<div>
+
+				</div>
+				<button type="button" class="btn variant-ghost-primary hidden {navbarBtm}"><a href="/about">About</a></button>
+				<button type="button" class="btn variant-ghost-primary hidden {navbarBtm}">Github</button>
 				<LightSwitch />
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
-	<svelte:fragment slot="sidebarLeft">
-		<div class="h h-full p-4 w-52 bg-fuchsia-500">Halo Madoo</div>
-	</svelte:fragment>
-
-	<!-- Router Slot -->
 	<MainPage />
-	<!-- ---- / ---- -->
-	<svelte:fragment slot="pageFooter">Created By FigoMager <br /> Powered By Svelte</svelte:fragment>
+	<svelte:fragment slot="pageFooter">
+		<div class="flex mt-20 tex justify-center items-center">
+			<p>Created By FigoMager 👨‍💻<br /> Powered By Svelte ⚡</p>
+			<div />
+		</div></svelte:fragment
+	>
 </AppShell>
