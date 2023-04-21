@@ -41,6 +41,7 @@ export interface MangaDetail {
 	studios: string[];
 	type: string;
 }
+
 export async function fetchData(url: string): Promise<Manga[]> {
 	try {
 		const data = await fetch(url).then((res) => res.json());
